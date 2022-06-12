@@ -34,7 +34,7 @@ public class Users {
 
     private String location;
 
-    @Column(name = "caution_count") //
+    @Column(name = "caution_count")
     private int cautionCount = 0;
 
     @ManyToOne
