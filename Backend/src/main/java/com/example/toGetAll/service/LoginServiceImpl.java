@@ -1,4 +1,4 @@
-package com.example.toGetAll.service;
+﻿package com.example.toGetAll.service;
 
 import com.example.toGetAll.model.Users;
 import com.example.toGetAll.repository.UsersRepository;
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class LoginServiceImpl implements LoginService{
     @Autowired
     private UsersRepository repository;
 
-    public Users findLoginUser(String userId,String pw ) {
+    public Users findLoginUser(String userId, String pw ) {
         final Users loginUser;
         final List<Users> foundUsersById = repository.findByUserId(userId);
         if (foundUsersById.isEmpty()){
@@ -25,24 +25,11 @@ public class UserServiceImpl implements UserService{
                 System.out.println("로그인 되었습니다.");
                 return foundUsersByIdAndPw;
             }
-//            final List<Users> foundUsersByPw = repository.findByUserPw(pw);
-//            for (Users userByPw:foundUsersByPw) {
-//                String idByPw = userByPw.getUserId();
-//                for (Users userById :foundUsersById) {
-//                    String idById = userById.getUserId()
-//                    if (idByPw.equals(idById)){
-//                        loginUser.setUserId();
-//                        log
-//                    }
-//                }
-//            }
+
         }
         return null;
 
     }
-
-
-
 
 
 }

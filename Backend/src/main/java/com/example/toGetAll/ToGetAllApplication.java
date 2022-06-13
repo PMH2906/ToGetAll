@@ -10,6 +10,9 @@ public class ToGetAllApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ToGetAllApplication.class, args);
+
+
 	}
+
 
 }
