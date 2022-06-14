@@ -24,7 +24,6 @@ public class UserController {
         return userService.save(user);
     }
 
-
     @GetMapping
     @ResponseBody
     public LoginResponse findLoginUser(@RequestBody Users users) {
