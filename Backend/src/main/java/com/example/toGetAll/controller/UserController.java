@@ -16,8 +16,6 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private LoginResponse loginResponse;
-    @Autowired
-    private static final long serialVersionUID = 1L;
 
     @PostMapping("/signup")
     public Users save(@RequestBody Users user) {
