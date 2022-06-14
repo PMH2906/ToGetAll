@@ -35,7 +35,7 @@ public class Users {
     private String location;
 
     @Column(name = "caution_count")
-    private int cautionCount = 0;
+    private final int cautionCount = 0;
 
     @ManyToOne
     @JoinColumn(name = "CHAT_NUM")
