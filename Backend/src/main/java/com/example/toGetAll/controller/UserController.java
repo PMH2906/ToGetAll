@@ -21,7 +21,6 @@ public class UserController {
 
     @PostMapping("/signup")
     public Users save(@RequestBody Users user) {
-        System.out.println(user);
         return userService.save(user);
     }
 
@@ -31,13 +30,10 @@ public class UserController {
     public LoginResponse findLoginUser(@RequestBody Users users) {
         String userId = users.getUserId();
         String pw = users.getPw();
-
-        System.out.println(users);
-
         return userService.findLoginUser(userId, pw);
-        }
-
     }
+
+}
 
 
 

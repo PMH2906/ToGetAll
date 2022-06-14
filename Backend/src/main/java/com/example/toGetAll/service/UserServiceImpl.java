@@ -21,15 +21,10 @@ public class UserServiceImpl implements UserService{
         return usersRepository.save(user);
     }
 
-
-
+    @Override
     public LoginResponse findLoginUser(String userId, String pw) {
-        final Users loginUser;
         final List<Users> foundUsersById = usersRepository.findByUserId(userId);
         final Users foundUsersByIdAndPw = usersRepository.findByUserIdAndPw(userId, pw);
-
-        System.out.println(userId + pw);
-        System.out.println(foundUsersByIdAndPw);
 
         if (foundUsersById.isEmpty()){
             loginResponse.setMsg("아이디가 존재하지 않습니다.");
@@ -45,7 +40,6 @@ public class UserServiceImpl implements UserService{
             }
         }
         return loginResponse;
-
     }
 
 }

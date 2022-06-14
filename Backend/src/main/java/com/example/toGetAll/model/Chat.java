@@ -29,8 +29,6 @@ public class Chat {
     private String title;
 
     @Column(name = "limited_person", nullable = false)
-    private int limitedPerson = 2;
+    private final int limitedPerson = 2;
 
-    @OneToMany(mappedBy = "chat")
-    private List<Users> users = new ArrayList<>();
 }
