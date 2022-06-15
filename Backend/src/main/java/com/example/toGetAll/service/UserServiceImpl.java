@@ -26,6 +26,8 @@ public class UserServiceImpl implements UserService{
         final List<Users> foundUsersById = usersRepository.findByUserId(userId);
         final Users foundUsersByIdAndPw = usersRepository.findByUserIdAndPw(userId, pw);
 
+
+
         if (foundUsersById.isEmpty()){
             loginResponse.setMsg("아이디가 존재하지 않습니다.");
         } else {
@@ -38,6 +40,8 @@ public class UserServiceImpl implements UserService{
                 loginResponse.setMsg(loginNickName + "님 환영합니다!");
                 return loginResponse;
             }
+
+            System.out.println(loginResponse);
         }
         return loginResponse;
     }

@@ -10,4 +10,6 @@ public interface ChatService {
     List<Chat> findChat(String location, String foodCategory);
 
     List<Chat> delete(Long chatNum);
+
+    List<Chat> findAll();
 }

@@ -1,6 +1,8 @@
 package com.example.toGetAll.controller;
 
+import com.example.toGetAll.dto.LoginResponse;
 import com.example.toGetAll.model.Chat;
+import com.example.toGetAll.model.Users;
 import com.example.toGetAll.service.ChatServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/chat")
+@RequestMapping("/products/main2")
 @CrossOrigin
 public class ChatController {
 
@@ -29,4 +31,10 @@ public class ChatController {
     public List<Chat> delete(@PathVariable("id") Long chatNum) {
         return chatService.delete(chatNum);
     }
+
+    @GetMapping
+    public List<Chat> findAll() {
+        return chatService.findAll();
+    }
+
 }

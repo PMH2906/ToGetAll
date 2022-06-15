@@ -34,4 +34,9 @@ public class ChatServiceImpl  implements ChatService{
 
         return chatRepository.findAll();
     }
+
+    @Override
+    public List<Chat> findAll() {
+        return chatRepository.findAll();
+    }
 }

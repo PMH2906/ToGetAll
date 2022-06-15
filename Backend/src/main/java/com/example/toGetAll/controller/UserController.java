@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("user")
 @CrossOrigin
 public class UserController {
 
@@ -22,9 +22,10 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping
+    @PostMapping("/login")
     @ResponseBody
     public LoginResponse findLoginUser(@RequestBody Users users) {
+
         String userId = users.getUserId();
         String pw = users.getPw();
         return userService.findLoginUser(userId, pw);
