@@ -14,7 +14,7 @@ const Login = (props) => {
   const pwChangeHandler = (event) => {setPw(event.target.value)};
 
   const [user, setUser] = useState(props.user)
-
+  
   const login = () => {
     const data = {
       userId: userId,
@@ -47,7 +47,7 @@ const Login = (props) => {
         
       } catch (error) {
         console.log(error)
-        setUser(user) 
+        // setUser(user) 
         
       }
     };

@@ -30,7 +30,7 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     @ResponseBody
     public UserResponse findLoginUser(@RequestBody Users users) {
         String userId = users.getUserId();
