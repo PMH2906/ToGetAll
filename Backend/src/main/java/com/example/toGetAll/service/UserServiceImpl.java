@@ -1,6 +1,6 @@
 package com.example.toGetAll.service;
 
-import com.example.toGetAll.dto.LoginResponse;
+import com.example.toGetAll.dto.UserResponse;
 import com.example.toGetAll.model.Users;
 import com.example.toGetAll.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,32 +14,54 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UsersRepository usersRepository;
     @Autowired
-    private LoginResponse loginResponse;
+    private UserResponse userResponse;
+
+//    @Override
+//    public Users save(Users user) {
+//        return usersRepository.save(user);
+//    }
 
     @Override
-    public Users save(Users user) {
-        return usersRepository.save(user);
+    public UserResponse save(Users user) {
+        String userId = user.getUserId();
+        String nickName = user.getNickName();
+        List<Users> foundUserById = usersRepository.findByUserId(userId);
+        List<Users> foundUserByNickName = usersRepository.findByNickName(nickName);
+
+        if (foundUserById.isEmpty() && foundUserByNickName.isEmpty()) {
+            userResponse.setUser(user);
+            userResponse.setMsg("회원가입이 성공적으로 처리되었습니다.");
+            usersRepository.save(user);
+        } else {
+            if(foundUserById.isEmpty()) {
+                userResponse.setMsg("중복된 닉네임입니다.");
+            } else {
+                userResponse.setMsg("중복된 id입니다.");
+            }
+        }
+
+        return userResponse;
     }
 
     @Override
-    public LoginResponse findLoginUser(String userId, String pw) {
+    public UserResponse findLoginUser(String userId, String pw) {
         final List<Users> foundUsersById = usersRepository.findByUserId(userId);
         final Users foundUsersByIdAndPw = usersRepository.findByUserIdAndPw(userId, pw);
 
         if (foundUsersById.isEmpty()){
-            loginResponse.setMsg("아이디가 존재하지 않습니다.");
+            userResponse.setMsg("아이디가 존재하지 않습니다.");
         } else {
             if (foundUsersByIdAndPw == null) {
-                loginResponse.setMsg("비밀번호를 다시 입력하세요.");
+                userResponse.setMsg("비밀번호를 다시 입력하세요.");
             } else {
                 System.out.println(foundUsersByIdAndPw);
-                loginResponse.setUser(foundUsersByIdAndPw);
+                userResponse.setUser(foundUsersByIdAndPw);
                 String loginNickName = foundUsersByIdAndPw.getNickName();
-                loginResponse.setMsg(loginNickName + "님 환영합니다!");
-                return loginResponse;
+                userResponse.setMsg(loginNickName + "님 환영합니다!");
+                return userResponse;
             }
         }
-        return loginResponse;
+        return userResponse;
     }
 
 }

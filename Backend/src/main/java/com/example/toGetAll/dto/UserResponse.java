@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Setter
 @Getter
-public class LoginResponse {
+public class UserResponse {
     private String msg;
     private Users user;
 

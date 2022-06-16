@@ -11,7 +11,6 @@ const Register = () => {
   const [values, setValues] = useState({
     id: "",
     password: "",
-    birthday: "",
     password: "",
     confirmPassword: "",
     name:"",
@@ -70,7 +69,7 @@ const Register = () => {
       required: true,
     },
     {
-      id: 5,
+      id: 6,
       name: "favoritfood",
       type: "text",
       placeholder: "favoritfood",
@@ -78,7 +77,7 @@ const Register = () => {
       required: true,
     },
     {
-      id: 5,
+      id: 7,
       name: "location",
       type: "text",
       placeholder: "location",
@@ -108,9 +107,47 @@ const Register = () => {
       location : values.location
     }
   
-    postUserAPI(data);
+    // console.log(data);
+
+    // postUserAPI(data);
+
+    const getServerSideProps = async () => {
+      try {
+        const res = await fetch("http://localhost:8080/user/signup",{
+          method: 'POST',
+          headers: {
+            // json 형태로 데이터를 보내겠다는 의미
+            'Content-Type' : 'application/json'
+          },
+          body : JSON.stringify(data) // 직렬화
+
+        });
+        const user = await res.json();
+        console.log(user);
+        setValues(user);
+        alert(user.msg);
+        // console.log(user.msg);
+        if(user.msg === "회원가입이 성공적으로 처리되었습니다.") {
+          router.replace('/user/login');
+        } else {
+          // router.replace('/user/signup');
+          // setValues({ ...values, [e.target.name]: [] });
+          // router.replace('/')
+          // location.reload;
+          window.location.replace("/user/signup")
+          // location.replace(location.href);
+        }
+        
+      } catch (error) {
+        // console.log(error)
+        // setUser(user) 
+        
+      }
+    };
     
-    router.replace('/user/login')
+    getServerSideProps();
+
+    // router.replace('/user/login')
 }
 
   return (
