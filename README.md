@@ -86,9 +86,7 @@ heroku / git
 **기획 단계에서는 회원은 여러 명의 다른 회원과 통신을 할 수 있고, 여러 채팅방에 참여할 수 있었다.** 그러나 이를 실제로 구현하기 위해서는 **서버가 배포되어야 했는데, 이 부분에 대한 학습이 선행되지 않아 socket 통신을 활용하기로 하였다.**  
 (https://github.com/hj3437/study_node_socket_io)의 채팅 프로그램 코드를 참조하여 **여러 명이 통신을 할 수 있게 하였으나, 여러 채팅방을 열 수는 없어 모두 같은 채팅방으로 이동하게 되는 현상이 현재 문제점**으로 삼고있다.
 
-4. kakao map api 📺 <br>
-
-![chatting](https://user-images.githubusercontent.com/102516088/174077587-377e80d0-1a4b-4caa-84dc-d9873c8c5a00.gif)
+4. kakao map api  <br>
 
 ## 08. 추가시킬 기능들
 1. 마이페이지 수정
