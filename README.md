@@ -34,6 +34,8 @@ Next.js / Javascript / React / HTML / CSS<br>
 ### backend<br>
 Spring Framework / MySQL / Spring Boot<br>
 
+heroku / git
+
 ## 05. Requirements🤔
 
 ### 1) 회원가입
