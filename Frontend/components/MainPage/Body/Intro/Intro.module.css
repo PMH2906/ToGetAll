@@ -1,0 +1,139 @@
+.i {
+  display: flex;
+  height: 100vh;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+.circle {
+  /* position: absolute;
+  z-index: index 1; */
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  position: absolute;
+  margin-left: 150px;
+  margin-top: 120px;
+}
+
+.ileft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iright {
+  flex: 1;
+  position: relative;
+}
+
+.span {
+  padding-left: 10px;
+  font-size: 25px;
+  padding-top: 50px;
+}
+
+.ileftwrapper {
+  padding: 50px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.iintro {
+  font-size: 30px;
+  font-weight: 300;
+  padding-left: 10px;
+}
+
+.iname {
+  font-size: 60px;
+  padding-left: 10px;
+}
+
+.ititle {
+  height: 50px;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+.ititlewrapper {
+  height: 100%;
+  animation: move 10s ease-in-out infinite alternate;
+  padding-left: 10px;
+}
+
+@keyframes move {
+  25% {
+    transform: translateY(-50px);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  75% {
+    transform: translateY(-150px);
+  }
+
+  100% {
+    transform: translateY(-200px);
+  }
+}
+
+.ititleitem {
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #59b256;
+  display: flex;
+  align-items: center;
+}
+
+.iscroll {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.iimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.ibg {
+  /* clip-path: polygon(100% 0%, 100% 51%, 100% 100%, 25% 100%, 0% 50%, 25% 0%); */
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 14% 50%);
+  background-color: #59b256;
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+  position: absolute;
+  z-index: index 2;
+  top: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .i {
+    flex-direction: column;
+  }
+
+  .ileftwrapper {
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .idesc {
+    display: none;
+    margin-bottom: -50px;
+  }
+}

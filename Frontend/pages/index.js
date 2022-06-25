@@ -1,31 +1,18 @@
 import Head from "next/head";
-import Image from "next/image";
-import Intro from "../components/Intro";
-import Services from "../components/Services";
-import styles from "../styles/Home.module.css";
-import { data } from "../../tgaa/data";
-import Testimonials from "../components/Testimonials";
+import Mainpage from "../components/MainPage/Mainpage";
 
-export default function Home({ services }) {
+export default function Home() {
   return (
     <div>
-      <Head>
-        <title>AV0CAD0 Digital Product Agency</title>
-        <meta
-          name="description"
-          content="Web Design, App Development, Content Creation Agency Near Sweden"
-        />
-      </Head>
-      <Intro />
-      <Services services={services} />
-      <Testimonials />
-    </div>
+    <Head>
+      <title>ToGetAll</title>
+      <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Fredoka+One&family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet"></link>
+      <meta
+        name="description"
+        content="Web Design, App Development, Content Creation Agency Near Sweden"
+      />
+    </Head>
+    <Mainpage/>
+  </div>
   );
 }
-
-export const getStaticProps = () => {
-  const services = data;
-  return {
-    props: { services },
-  };
-};

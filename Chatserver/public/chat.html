@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300&family=Fredoka+One&family=Gowun+Batang&family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        var input = prompt('닉네임을 입력하세요!');       
+    </script>
+    
+</head>
+
+<body class="chat">
+
+    <h4> <span class="introduce" type="text" value="">방을 선택하세요! </span> <span class="io-room">Select Room</span></h4>   
+    <h4>닉네임: <span class="io-id"></span></h4>
+    
+    <div class="content-cover">
+
+        <div class="room-list">
+            <div class="room-header">채팅 방 목록</div>
+                <div class="room-select">
+                    <div class="roomEl" onclick="joinRoom('맛밥')">맛밥</div>
+                    <div class="roomEl" onclick="joinRoom('오늘 홍대 올 사람~')">오늘 홍대 올 사람~</div>
+                    <div class="roomEl" onclick="joinRoom('선착순 3명')">선착순 3명</div>
+                </div>
+        </div>
+            
+
+        <div class="msg-wrap">
+            <div class="chat-header">Message</div>
+                <div class = "chat-main">
+                    <ol id="chat_list"></ol>
+                </div>
+                <input id="io-txt" type="text" value="" placeholder="메세지를 입력하세요.">
+                <span class="send-btn" onclick="send()">Send</span>
+        </div>
+
+    </div>
+        
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
